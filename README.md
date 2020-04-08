@@ -12,4 +12,21 @@
  Here are the few snapshots of the outcome
  <br>
  </br>
-![GitHub Logo](/images/logo.png)
+ Every field is made manadatory so user must fill all fields to signup
+ <img src="images/form_mandate.png">
+ <br>
+ </br>
+ Email field as special email validation (user need to enter proper mail with a @ character)
+ <img src="images/form_email.png">
+ <br>
+ </br>
+ After Sucessfuly registering the user will get a welcome message 
+ <img src="images/welcome_page.png">
+ <br>
+ </br>
+ The data of the user is saved in the database
+ <img src="images/database.png">
+ <br>
+ </br>
+ If the user as already an account then try sigin message will be displayed
+ <img src="images/signin.png">
