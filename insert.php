@@ -1,15 +1,16 @@
+// create  a tablel in a database and create the required columns
+
 <?php
 $firstname = $_POST['fname'];
 $lastname = $_POST['lname'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-$tname = $firstname+$lastname;
 
 if (!empty($firstname) || !empty($lastname) || !empty($email) || !empty($password)) {
  $host = "localhost";
-    $dbUsername = "saireddy";
-    $dbPassword = "saireddy@12";
-    $dbname = "record";
+    $dbUsername = "saireddy";//Use your details
+    $dbPassword = "********";//password for the database user
+    $dbname = "record";//database name
 
     //create connection
     $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
@@ -17,7 +18,7 @@ if (!empty($firstname) || !empty($lastname) || !empty($email) || !empty($passwor
      die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
     } else {
      $SELECT = "SELECT email From users Where email = ? Limit 1";
-     $INSERT = "INSERT Into users (firstname, lastname,email, password) values(?, ?, ?, ?)";
+     $INSERT = "INSERT Into users (firstname, lastname,email, password) values(?, ?, ?, ?)";//table name is users
      
      //Prepare statement
      $stmt = $conn->prepare($SELECT);
@@ -32,8 +33,6 @@ if (!empty($firstname) || !empty($lastname) || !empty($email) || !empty($passwor
       $stmt->bind_param("ssss", $firstname, $lastname,$email,$password );
       $stmt->execute();
       echo "<h1>Welcome $firstname $lastname</h1>";
-      $name=$_POST['tname']
-      header('Location: greeting.html');
      } else {
       echo "<h2>you already have an account try SignIn</h2>";
      }
